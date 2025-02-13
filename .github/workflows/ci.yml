@@ -13,12 +13,17 @@ jobs:
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
-        
           java-version: '11'
           distribution: 'adopt'
 
+      - name: List files in the root directory
+        run: ls -la
+
+      - name: List files in the app directory
+        run: ls -la app
+
       - name: Change to project directory
-        run: cd ../app/src
+        run: cd app/src
 
       - name: Build with Maven
         run: mvn clean install
