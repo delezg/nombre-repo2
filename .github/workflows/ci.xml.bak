@@ -1,1 +1,28 @@
+name: CI
 
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Ver la hora
+        run: date
+
+      - name: Esperar 3 segundos
+        run: sleep 3
+
+      - name: Ver la versión de Git
+        run: git version
+
+      - name: Comprobar disponibilidad de la página de AS
+        run: curl -k "https://as.com"
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "Tu Nombre"
+          git config --global user.email "tuemail@example.com"
+
+      - name: Clonar el repositorio
+        uses: actions/checkout@v2
