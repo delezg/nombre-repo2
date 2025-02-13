@@ -22,14 +22,11 @@ jobs:
       - name: List files in the app directory
         run: Get-ChildItem -Force ./app
 
-      - name: Change to project directory
-        run: cd ./app
-
       - name: Verify POM file exists
-        run: if (!(Test-Path -Path "pom.xml")) { throw "POM file not found" }
+        run: if (!(Test-Path -Path "./app/pom.xml")) { throw "POM file not found" }
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn -f ./app/pom.xml clean install
 
       - name: Run tests
-        run: mvn test
+        run: mvn -f ./app/pom.xml test
