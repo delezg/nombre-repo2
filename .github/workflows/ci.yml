@@ -1,28 +1,22 @@
-name: CI
+name: Java CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Ver la hora
-        run: date
-
-      - name: Esperar 3 segundos
-        run: sleep 3
-
-      - name: Ver la versión de Git
-        run: git version
-
-      - name: Comprobar disponibilidad de la página de AS
-        run: curl -k "https://as.com"
-
-      - name: Configurar Git
-        run: |
-          git config --global user.name "Tu Nombre"
-          git config --global user.email "tuemail@example.com"
-
-      - name: Clonar el repositorio
+      - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run tests
+        run: mvn test
