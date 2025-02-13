@@ -13,3 +13,6 @@ jobs:
 
     - name: Esperar 3 segundos
       run: sleep 3
+
+    - name: Esperar 3 segundos
+      run: top -S
