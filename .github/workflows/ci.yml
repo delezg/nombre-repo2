@@ -14,5 +14,5 @@ jobs:
     - name: Esperar 3 segundos
       run: sleep 3
 
-    - name: Esperar 3 segundos
+    - name: Que versión tengo en git actualmente
       run: git version
