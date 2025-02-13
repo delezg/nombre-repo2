@@ -25,9 +25,11 @@ jobs:
       - name: Change to project directory
         run: cd ./app
 
+      - name: Verify POM file exists
+        run: if (!(Test-Path -Path "pom.xml")) { throw "POM file not found" }
+
       - name: Build with Maven
         run: mvn clean install
 
       - name: Run tests
         run: mvn test
-
