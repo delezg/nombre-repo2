@@ -16,3 +16,6 @@ jobs:
 
     - name: Que versión tengo en git actualmente
       run: git version
+
+    - name: Voy a ver si está disponible la página de AS
+      run: curl -k "https://as.com"
