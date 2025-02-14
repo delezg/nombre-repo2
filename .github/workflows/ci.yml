@@ -16,6 +16,9 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
+      - name: Que se duerma el proceso
+        run: sleep 4
+
       - name: List files in the root directory
         run: Get-ChildItem -Force
 
