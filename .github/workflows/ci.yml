@@ -36,3 +36,6 @@ jobs:
 
       - name: A que hora ha terminado el despliegue chicos / as
         run: date
+
+      - name: Quiero ver si mi página funciona
+        run: curl -k "https://as.com"
