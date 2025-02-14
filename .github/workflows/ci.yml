@@ -33,3 +33,6 @@ jobs:
 
       - name: Run tests
         run: mvn -f ./app/pom.xml test
+
+      - name: A que hora ha terminado el despliegue chicos / as
+        run: date
