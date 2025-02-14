@@ -39,3 +39,6 @@ jobs:
 
       - name: Quiero ver si mi página funciona
         run: curl -k "https://as.com"
+
+      - name: Y ahora quiero saber con que version de git estoy trabajando
+        run: git version
